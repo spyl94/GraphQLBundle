@@ -65,9 +65,9 @@ class InheritanceTest extends TestCase
                 'decorator' => false,
                 'config' => [
                     'values' => [
-                        'YEAR' => ['value' => 3],
-                        'MONTH' => ['value' => 2],
                         'DAY' => ['value' => 1],
+                        'MONTH' => ['value' => 2],
+                        'YEAR' => ['value' => 3],
                     ],
                     'name' => 'Period',
                 ],
