@@ -76,6 +76,28 @@ class InheritanceTest extends TestCase
         );
     }
 
+    public function testRelayInheritance(): void
+    {
+        $this->assertArrayHasKey('ChangeEventInput', $this->config);
+        $this->assertSame(
+            [
+                'type' => 'input-object',
+                InheritanceProcessor::INHERITS_KEY => ['AddEventInput'],
+                'class_name' => 'ChangeEventInputType',
+                'decorator' => false,
+                'config' => [
+                    'name' => 'ChangeEventInput',
+                    'fields' => [
+                        'title' => ['type' => 'String!'],
+                        'clientMutationId' => ['type' => 'String'],
+                        'id' => ['type' => 'ID!'],
+                    ]
+                ],
+            ],
+            $this->config['ChangeEventInput']
+        );
+    }
+
     public function testDecoratorTypeShouldRemovedFromFinalConfig(): void
     {
         $this->assertArrayNotHasKey('QueryBarDecorator', $this->config);
